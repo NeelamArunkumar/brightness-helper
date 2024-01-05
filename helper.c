@@ -5,8 +5,8 @@
 #include <linux/input.h>
 #include <sys/time.h>
 
-#define POWER_BUTTON_EVENT "/dev/input/event0"
-#define BACKLIGHT_PATH "/sys/class/backlight/panel0-backlight/brightness"
+#define POWER_BUTTON_EVENT "/dev/input/event1"
+#define BACKLIGHT_PATH "/sys/class/leds/lcd-backlight/brightness"
 #define POWER_KEYCODE KEY_POWER
 #define DELAY_SECONDS 1
 
@@ -40,7 +40,7 @@ int main() {
                     if (elapsed_time >= DELAY_SECONDS) {
                         // Perform the desired action after the delay
                         sleep(DELAY_SECONDS);
-                        system("echo 2047 > " BACKLIGHT_PATH);
+                        system("echo 888 > " BACKLIGHT_PATH);
                         printf("Brightness set to 2047\n");
                     }
                 }
